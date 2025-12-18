@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result - SDSS Galaxy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Classification Result</h1>
+            <p class="subtitle">SDSS Galaxy Classification</p>
+        </header>
+
+        {% if error %}
+        <div class="result-section error">
+            <h2>Error Occurred</h2>
+            <p class="error-message">{{ error }}</p>
+        </div>
+        {% else %}
+        <div class="result-section {% if prediction == 'STARFORMING' %}starforming{% else %}starburst{% endif %}">
+            <h2 class="prediction-label">{{ prediction }}</h2>
+            <p class="confidence">Confidence: {{ confidence }}%</p>
+            <div class="description">
+                {% if prediction == 'STARFORMING' %}
+                <p>This galaxy is classified as <strong>STARFORMING</strong>.</p>
+                {% else %}
+                <p>This galaxy is classified as <strong>STARBURST</strong>.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="input-summary">
+            <h3>Input Parameters</h3>
+            <div class="params-grid">
+                <div class="param"><span class="param-label">U-band:</span><span class="param-value">{{ u }}</span></div>
+                <div class="param"><span class="param-label">G-band:</span><span class="param-value">{{ g }}</span></div>
+                <div class="param"><span class="param-label">R-band:</span><span class="param-value">{{ r }}</span></div>
+                <div class="param"><span class="param-label">I-band:</span><span class="param-value">{{ i }}</span></div>
+                <div class="param"><span class="param-label">Z-band:</span><span class="param-value">{{ z }}</span></div>
+                <div class="param"><span class="param-label">RA:</span><span class="param-value">{{ ra }}</span></div>
+            </div>
+        </div>
+        {% endif %}
+
+        <a href="/" class="back-btn">Classify Another Galaxy</a>
+        <footer><p>SDSS Galaxy Classification using Machine Learning</p></footer>
+    </div>
+</body>
+</html>

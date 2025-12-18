@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDSS Galaxy Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Galaxy Classifier</h1>
+        <p>Enter spectral data to classify galaxy morphology</p>
+        <form action="/predict" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="u">U Band</label>
+                    <input type="number" step="any" name="u" id="u" placeholder="e.g. 19.4" required>
+                </div>
+                <div class="form-group">
+                    <label for="g">G Band</label>
+                    <input type="number" step="any" name="g" id="g" placeholder="e.g. 18.2" required>
+                </div>
+                <div class="form-group">
+                    <label for="r">R Band</label>
+                    <input type="number" step="any" name="r" id="r" placeholder="e.g. 17.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="i">I Band</label>
+                    <input type="number" step="any" name="i" id="i" placeholder="e.g. 16.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="z">Z Band</label>
+                    <input type="number" step="any" name="z" id="z" placeholder="e.g. 15.8" required>
+                </div>
+                <div class="form-group">
+                    <label for="redshift">Redshift</label>
+                    <input type="number" step="any" name="redshift" id="redshift" placeholder="e.g. 0.05" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-predict">Analyze Galaxy</button>
+        </form>
+    </div>
+</body>
+</html>

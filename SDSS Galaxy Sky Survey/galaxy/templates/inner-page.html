@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - SDSS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Complete</h1>
+        <p>Based on the spectral features provided:</p>
+        
+        <div class="result-card">
+            <div class="result-text">{{ prediction_text }}</div>
+        </div>
+
+        <a href="/">← Analyze Another Galaxy</a>
+    </div>
+</body>
+</html>
